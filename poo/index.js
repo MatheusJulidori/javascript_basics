@@ -30,3 +30,8 @@ console.log("----Transferencia----")
 contaCorrenteRicardo.transferir(3230, conta2)
 console.log(conta2.saldo)
 console.log(contaCorrenteRicardo.saldo)
+
+console.log("----Geral----")
+console.log(contaCorrenteRicardo)
+console.log(conta2)
+console.log(ContaCorrente.numeroDeContas)
