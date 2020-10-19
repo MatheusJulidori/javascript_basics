@@ -1,19 +1,17 @@
 import { Cliente } from "./Cliente.js"
 
 export class ContaCorrente {
+
     //public
     agencia;
 
     //private
     _saldo = 0;
-
-
-    get saldo() {
-        return this._saldo
-    }
-
     _cliente;
 
+
+
+    //accessors
     set cliente(novoValor) {
         if (novoValor instanceof Cliente) {
             this._cliente = novoValor
@@ -23,6 +21,17 @@ export class ContaCorrente {
     get cliente() {
         return this._cliente;
     }
+
+    get saldo() {
+        return this._saldo
+    }
+
+
+    constructor(cliente, agencia) {
+        this.cliente = cliente //Usando acessor pra poder fazer verificação
+        this.agencia = agencia
+    }
+
 
     //methods
     depositar(valor) {
@@ -40,10 +49,6 @@ export class ContaCorrente {
             console.log("Saldo insuficiente. Seu saldo atual é de R$" + this._saldo)
         }
         return valor;
-    }
-
-    extrato() {
-        console.log(this._saldo)
     }
 
     transferir(valor, conta) {

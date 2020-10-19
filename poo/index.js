@@ -2,48 +2,31 @@ import { Cliente } from "./Cliente.js"
 import { ContaCorrente } from "./ContaCorrente.js"
 
 //Clientes
-const cliente1 = new Cliente()
-
-cliente1.nome = "Ricardo"
-cliente1.cpf = 14489075600
-
-
-
-const cliente2 = new Cliente()
-
-cliente2.nome = "Ullysses"
-cliente2.cpf = 14489071232
-
-console.log(cliente1)
-console.log(cliente2)
-
+const cliente1 = new Cliente("Ricardo", 14489075600)
+const cliente2 = new Cliente("Ullysses", 14489071232)
 
 //Contas corrente
-const contaCorrenteRicardo = new ContaCorrente();
-
-contaCorrenteRicardo.agencia = 1001
-contaCorrenteRicardo.cliente = cliente1
-
-
-const conta2 = new ContaCorrente()
-
-contaCorrenteRicardo.agencia = 1001
-contaCorrenteRicardo.cliente = cliente2
+const contaCorrenteRicardo = new ContaCorrente(cliente1, 1001);
+const conta2 = new ContaCorrente(cliente2, 1001)
 
 // Ações
-contaCorrenteRicardo.extrato()
+console.log("----Informações----")
+console.log(contaCorrenteRicardo.cliente.nome)
+console.log(contaCorrenteRicardo.cliente.cpf)
+console.log(contaCorrenteRicardo.agencia)
+console.log(contaCorrenteRicardo.saldo)
 
 console.log("--------Depósito-------")
 contaCorrenteRicardo.depositar(10000)
-contaCorrenteRicardo.extrato()
+console.log(contaCorrenteRicardo.saldo)
 
 console.log("----------Saque-------")
 let valorSacado = contaCorrenteRicardo.sacar(400)
 console.log("Valor sacado: R$" + valorSacado)
-contaCorrenteRicardo.extrato()
+console.log(contaCorrenteRicardo.saldo)
 valorSacado = contaCorrenteRicardo.sacar(40000000)
 
 console.log("----Transferencia----")
 contaCorrenteRicardo.transferir(3230, conta2)
-conta2.extrato()
-contaCorrenteRicardo.extrato()
+console.log(conta2.saldo)
+console.log(contaCorrenteRicardo.saldo)
