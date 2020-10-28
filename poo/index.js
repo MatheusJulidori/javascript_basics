@@ -27,7 +27,8 @@ console.log(contaCorrenteRicardo.saldo)
 valorSacado = contaCorrenteRicardo.sacar(40000000)
 
 console.log("----Transferencia----")
-contaCorrenteRicardo.transferir(3230, conta2)
+let valor = 3230
+contaCorrenteRicardo.transferir(valor, conta2)
 console.log(conta2.saldo)
 console.log(contaCorrenteRicardo.saldo)
 
